@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap");
+* {
+  margin: 0px;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "Montserrat" !important;
+}
+body {
+  height: 100vh;
+  background-color: rgb(52, 104, 252, 0.95);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3468fc;
+  border-radius: 10px;
+}
+
+/* HEADER */
+
+#header {
+  position: relative;
+}
+
+#logo {
+  width: 40px;
+  margin: 5px 10px 0px 22px;
+}
+
+#menu {
+  height: 35px;
+  position: absolute;
+  right: 30px;
+  top: 55%;
+  transform: translateY(-50%);
+}
+
+/* MAIN */
+
+#container {
+  background-color: #dde6ff;
+  box-shadow: rgb(81, 75, 75) 0 0 8px;
+  border-radius: 30px 30px 0px 0px;
+  padding: 30px 0px 200px 0px;
+  margin-top: 8px;
+}
+
+#wtContainer {
+  background-color: white;
+  margin: 20px 70px 0px;
+  border-radius: 20px 15px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  height: 79vh;
+  text-align: center;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+#title {
+  position: absolute;
+  left: 66px;
+  margin-left: 10px;
+  top: 11px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 27px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.subtileCointainer {
+  padding: 20px;
+}
+
+.subtitle {
+  background-color: #dde6ff;
+  font-weight: bold;
+  color: #373737;
+  font-size: 22px;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.scrollContainer {
+  margin: 0px 40px;
+  overflow-y: scroll;
+  height: 80%;
+  width: 80%;
+  align-self:center;
+}
+
+.reserveContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reserveContainer input {
+  width: 5%;
+}
+
+.agree {
+  width: 35px;
+  height: 35px;
+}
+
+.reserveContainer div {
+  width: 95%;
+}
+
+.reserveInfos {
+  display: flex;
+  flex-direction: row;
+  border: 2px #96b0f8 solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 10px;
+}
+
+.hotelName {
+  background-color: #dde6ff;
+  font-weight: bold;
+  color: #373737;
+  font-size: 22px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.codeAndCheckOutDate {
+  background-color: #dde6ff;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  margin: 5px 5px 0px;
+  flex-direction: row;
+}
+
+.ccBoxRight {
+  border-left: 1px #3468fc solid;
+}
+
+.ccBoxLeft {
+  border-right: 1px #3468fc solid;
+}
+
+.ccText {
+  color: #3468fc;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.ccNumber {
+  color: #373737;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.valueInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.valueText {
+  color: #373737;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.valueNumber {
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #dde6ff;
+  font-weight: bold;
+  font-size: 32px;
+  color: #3468fc;
+  margin: 10px 10px 0px;
+  width: 150px;
+}
+
+.geralContainer {
+  margin-top: 15px;
+  border-top: 2px #3468fc solid;
+  margin: 15px 40px;
+}
+
+.geralTitle h1 {
+  font-weight: bold;
+  margin: 15px;
+  color: #3468fc;
+}
+
+.geralInfos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.antecipationType {
+  display: flex;
+  flex-direction: row;
+  transform: translateX(25px);
+}
+
+.selectedAntecipationContainer {
+  display: flex;
+  flex-direction: column;
+}
+.selectedAntecipationContainer h1 {
+  margin: 3px;
+  color: #373737;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.selectedAntecipationContainer p {
+  font-weight: bold;
+  color: #3468fc;
+  font-size: 24px;
+  padding: 25px;
+  background-color: #dde6ff;
+  border-radius: 15px;
+  margin: 5px 5px 0px;
+}
+
+.antecipationForm {
+  margin: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.antecipationForm input:checked {
+  background-color: #3468fc;
+}
+
+.antecipationForm div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.antecipationForm input {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    border: 1px #dde6ff solid;
+    background-color: #dde6ff;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    margin: 5px;
+}
+
+.antecipationForm label {
+    color: #373737;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.receiptDateContainer {
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+}
+.receiptDateContainer h1 {
+  margin: 3px;
+  color: #373737;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.receiptDateContainer p {
+  font-weight: bold;
+  color: #3468fc;
+  font-size: 24px;
+  padding: 20px;
+  background-color: #dde6ff;
+  border-radius: 15px;
+  margin: 5px 5px 0px;
+}
+
+.buttonAntecipar{
+  display: flex;
+  align-self: center;
+}
+
+button{
+  background-color: #3468fc;
+  color: #fff;
+  border:none;
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-align: center;
+}
+button{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 9px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover{
+  padding-right: 30px;
+  padding-left:30px;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.popUp{
+  position:fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  height: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  color: #373737;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: #373737 inset 10px;
+  backdrop-filter: 20px;
+  display: none;
+}
+
+
+
+
+
+#antecipation{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.imgbx{
+  text-align: center;
+}
+
+#gif{
+  width: 120px;
+}
+
+#closeIcon{
+  position:absolute;
+  right: 10px;
+  top: 5px;
+  width: 20px;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.5s;
+
+}

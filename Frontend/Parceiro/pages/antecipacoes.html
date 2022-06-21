@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/antecipacoes.css" />
+    <script src="../scripts/script.js"></script>
+    
+    <!--LINK CSS-->
+    <link
+    rel="shortcut icon"
+    href="../assets/favicon.png"
+    type="image/x-icon"
+    />
+    <!--TAB ICON-->
+    <title>Hurb | Antecipações</title>
+    <!--TAB TITLE-->
+  </head>
+  <body onload="load()">
+    <div id="header" class="blur">
+      <a href="./dashboard" >
+        <img id="logo" src="../assets/logo.png" alt="logo" />
+      </a>
+      <img id="menu" src="../assets/menu.png" alt="menu" />
+      <!--MENU ICON-->
+      <h1 id="title">Antecipações</h1>
+      <!--WHITE TITLE-->
+    </div>
+    <main id="container" class="blur">
+      <!--BLUE BACKGROUND-->
+      <div id="wtContainer">
+        <!--WHITE BACKGROUND-->
+        <div class="subtileCointainer">
+          <h1 class="subtitle">Reservas Selecionadas</h1>
+        </div>
+        <div class="scrollContainer" id="scrollContainer"></div>
+        <div class="geralContainer">
+          <div class="geralTitle">
+            <h1>Geral</h1>
+          </div>
+          <div class="geralInfos">
+            <div class="valueInfos">
+              <p class="valueText">Valor</p>
+              <p class="valueNumber" id="fullValue">R$ 0</p>
+            </div>
+            <div class="antecipationType">
+              <div class="selectedAntecipationContainer">
+                <h1>Tipo de antecipação</h1>
+                <p id="selectedAntecipationText">D+30</p>
+              </div>
+              <form action="" class="antecipationForm">
+                <div>
+                  <input
+                    type="radio"
+                    name="D"
+                    id="D+30"
+                    class="checkBox"
+                    value="D+30"
+                    onclick="javaScript:regra()"
+                  />
+                  <label for="D+30">D+30</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="D"
+                    id="D+15"
+                    class="checkBox"
+                    value="D+15"
+                    onclick="javaScript:regra()"
+                  />
+                  <label for="D+15">D+15</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="D"
+                    id="D+7"
+                    class="checkBox"
+                    value="D+7"
+                    onclick="javaScript:regra()"
+                  />
+                  <label for="D+7">D+7</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="D"
+                    id="D+2"
+                    class="checkBox"
+                    value="D+2"
+                    onclick="javaScript:regra()"
+                  />
+                  <label for="D+2">D+2</label>
+                </div>
+              </form>
+            </div>
+            <div class="receiptDateContainer">
+              <h1>Data de Recebimento</h1>
+              <p id="Data">XX/XX/XXXX</p>
+            </div>
+            <div class="buttonAntecipar">
+              <button onclick="abrir()">Antecipar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="bodyBlur">   
+  </div>
+  <div id="popUp" class="popUp">
+    <div class="imgbx" >
+      <img id="gif" src="../assets/76649-checked.gif" alt="">
+    <a href="\dashboard">
+      <img id="closeIcon" src="../assets/x.svg" alt="" >
+    </a>
+    </div>
+    <p id="antecipation"> Sua antecipação foi confirmada!</p> 
+    <p style="font-size: 16px;">
+    Você receberá um email com as principais informações da
+      antecipação!
+    </p>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.png"
+      type="image/x-icon"
+    />
+
+    <title>Hurb | Dashboard</title>
+  </head>
+  <body>
+    <!--Cabeçalho do site-->
+    <header class="header">
+      <a href="/dashboard"
+        ><img id="logo" src="../assets/logo.png" alt="logo"
+      /></a>
+      <div class="toggle"></div>
+      <ul class="menu">
+        <li>
+          <select
+            name="myAccount"
+            id="myAccount"
+            onchange="location.href=this.value"
+          >
+            <option style="display: none">Minha Conta</option>
+            <option value="/editarDados">Dados Pessoais</option>
+            <option value="/editarBanco">Dados Bancários</option>
+            <option value="/index">Sair</option>
+          </select>
+        </li>
+        <li>
+          <select name="myHotels" id="myHotels">
+            <option value="1">Meus Hotéis</option>
+            <option value="2">Hotel Por do Sol</option>
+            <option value="3">Hotel Itatiaia</option>
+            <option value="4">Pousada Tradição</option>
+          </select>
+        </li>
+      </ul>
+      <!-- <img id="menu" src="../assets/menu.png" alt="menu" /> -->
+    </header>
+    <!--Corpo principal da página dashboard-->
+    <div class="body-dashboard">
+      <!--Centro do dashboard que está dentro do corpo principal-->
+      <div class="dashboard-center">
+        <!--Metade do centro do dashboard-->
+        <div class="dashboard-row">
+          <!--Botão de solicitação de antecipação-->
+          <a href="./antecipacoes" class="select-button">
+            <img
+              id="solicitar-antecipação"
+              src="../assets/forma_de_pagamento.svg"
+            />
+            <br />
+            <div style="height: 10%; width: 100%">
+              <span>Solicitar<br />antecipação</span>
+            </div>
+          </a>
+          <!--Botão de acompanhamento das finanças do hotel-->
+          <a href="/financeiro" class="select-button">
+            <img id="finanças" src="../assets/dinheiro.png" />
+            <br />
+            <div style="height: 10%; width: 100%">
+              <span>Finanças</span>
+            </div>
+          </a>
+        </div>
+        <!--Outra metade do centro do dashboard-->
+        <div class="dashboard-row">
+          <!--Botão de ver o histórico de antecipações do hotel-->
+          <a href="/historico" class="select-button">
+            <img id="histórico" src="../assets/time.svg" />
+            <br />
+            <div style="height: 10%; width: 100%; margin-top: 15px">
+              <span>Histórico</span>
+            </div>
+          </a>
+          <!--Botão de acompanhar as solicitações de antecipação-->
+          <a href="/antecipacoesInfo" class="select-button">
+            <img id="info-ant" src="../assets/info.svg" />
+            <br />
+            <div
+              style="
+                height: 10%;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+              "
+            >
+              <span>Saiba mais<br />sobre antecipações</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Código do menu lateral  -->
+    <script type="text/javascript">
+      function toggleMenu() {
+        var menuToggle = document.querySelector(".toggle");
+        var menu = document.querySelector(".menu");
+        menuToggle.classList.toggle("active");
+        menu.classList.toggle("active");
+      }
+    </script>
+<!-- Widget para libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+  </body>
+</html>

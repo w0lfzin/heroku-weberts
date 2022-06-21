@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/financeiro.css" /> <!--LINK CSS-->
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon"> <!--TAB ICON-->
+    <title>Hurb | Financeiro</title> <!--TAB TITLE-->
+  </head>
+  <body>
+    <div id="header">
+      <a href="./dashboard"><img id="logo" src="../assets/logo.png" alt="logo" /></a>
+      <img id="menu" src="../assets/menu.png" alt="menu" /> <!--MENU ICON-->
+      <h1 id="title">Financeiro</h1> <!--WHITE TITLE-->
+    </div>
+    <main id="container"> <!--BLUE BACKGROUND-->
+      <div id="wtContainer"> <!--WHITE BACKGROUND-->
+        <div id="revenueDetails"> <!--LEFT PART-->
+          <p class="subtitle">Detalhamento da receita</p> <!--LEFT TITLE-->
+          <div id="pieChartContainer"> <!--PIE CHART SECTION-->
+              <canvas class="pie-chart"></canvas> 
+          </div>
+        </div>
+        <div id="antecipationGraph"> <!--LEFT PART-->
+          <p class="subtitle">Gráfico de Antecipações</p> <!--LEFT TITLE-->
+          <div class="graphContainer">  
+            <div class="grafico">    <!--PIE CHART SECTION-->
+              <section class="bar">
+                   <canvas style="height: 350px; width: 450px;" class="bar-chart"></canvas> 
+              </section>
+          </div>
+
+          <!--CHART JS LINK-->
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>   
+
+          <script> 
+            var api ="localhost:3000";
+
+
+            //DADOS VALOR NÃO ANTECIPADO PARA O PIE CHART
+            var url = "http://127.0.0.1:3031/valor1";
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, false);
+            xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+            var retorno1 = JSON.parse(xhttp.responseText);
+
+            var valor1 = retorno1['SUM(valor)']
+
+
+            //DADOS MONTANTE ANTECIPADO PARA O PIE CHART
+            url = "http://127.0.0.1:3031/valor2";
+
+            xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, false);
+            xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+            var retorno2 = JSON.parse(xhttp.responseText);
+
+            var valor2 = retorno2['SUM(montante)']
+
+            //PIE CHART
+              Chart.defaults.font.weight = 'bolder';
+              Chart.defaults.font.family = 'Montserrat';
+               var ctx = document.getElementsByClassName('pie-chart');
+               var chartGraph = new Chart(ctx, {
+                   type: 'doughnut',
+                   data: {
+                       labels: ['Dinheiro Antecipável', 'Dinheiro Não Antecipável'],
+                   datasets: [{
+                       label: 'Detalhamento receita',
+                       data: [valor1,valor2],
+                       backgroundColor: [
+                           'rgb(255, 99, 132)',
+                           'rgb(54, 162, 235)',
+                       ],
+                       hoverOffset: 4,
+                       radius: '100%',
+                       borderWidth: 1,
+                       cutout: '60%',
+                   options: {
+                       responsive: false,
+                       maintainAspectRatio: false,                                                                               
+                   }
+                   }]                                        
+                   }
+               }); 
+           </script>
+
+           <!--BAR CHART-->  
+
+           <script>       
+           //Valor mes 1
+                url = "http://127.0.0.1:3031/mes1";
+                xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, false);
+                xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+                var retornomes1 = JSON.parse(xhttp.responseText);
+
+               var mes1 = retornomes1['SUM(montante)']   
+               
+              //Valor mes 2
+              
+              url = "http://127.0.0.1:3031/mes2";
+                xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, false);
+                xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+                var retornomes2 = JSON.parse(xhttp.responseText);
+
+               var mes2 = retornomes2['SUM(montante)']   
+               
+               var boy = document.getElementsByClassName('bar-chart');
+               var barGraph = new Chart(boy, {
+                   type: 'bar',
+                   data: {
+                       labels: ['Mes1', 'Mes2'],
+                       datasets: [{
+                           label: 'Gráfico de Antecipações em R$',
+                           data: [mes1, mes2],
+                           backgroundColor: [
+                               'rgb(255, 99, 132)',
+                               'rgb(255, 159, 64)',
+                       ],
+                       barThickness: 125,
+                       borderRadius: 12
+                   }]
+                   },
+                   options: {
+                       maintainAspectRatio: false,
+                       scales: {
+                       x: {
+                           grid: {
+                           display: false
+                           }
+                       },
+                       y: {
+                           grid: {
+                           display: false
+                           }
+                       }
+                       }
+                   }
+               });
+           </script> 
+   </div>
+   
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html> 

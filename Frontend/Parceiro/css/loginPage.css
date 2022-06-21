@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+*{
+    margin: 0px;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif, bold;
+}
+body{
+    height: 100vh;
+    background-color:   white;
+    overflow: hidden;
+}
+
+/* MAIN */
+
+main{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.textContainer{
+    background-color: #DDE6FF;
+    border-radius: 0px 25px 25px 0px;
+    height: 100vh;
+    padding: 100px;
+}
+
+.textContainer h1{
+    color: #373737;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.formContainer{
+    color: #373737;
+    font-weight: bold;
+}
+
+.formContainer p{
+    color: #373737;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.formContainer input{
+    padding: 3px 10px;
+    border-radius: 15px;
+    border: 1px #DDE6FF hidden;
+    width: 100%;
+}
+
+.formContainer input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#passwordForgoten {
+    color: #3468FC;
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+}
+
+.btnBx{
+    text-align: center;
+    width: 100%;
+    transform: translateY(20px);
+}
+
+.loginBtn{
+    padding: 8px 13px;
+    color: white;
+    font-weight: bold;
+    background-color: #3468FC;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+}
+.loginBtn:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+/* IMG Container */
+
+.logoBx{
+    z-index: 1000;
+    position: absolute;
+    width: 90%;
+}
+
+.logoFdp{
+    position: relative;
+}
+
+.logoBx img{
+    width: 200px;
+    margin:  20px;
+    position: absolute;
+    right : 50%;
+    transform: translateX(-50%);
+}
+
+.imgBx{
+    text-align: center;
+}
+
+.gif{
+    width: 100%;
+}
