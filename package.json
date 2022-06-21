@@ -1,13 +1,13 @@
 {
   "name": "api_teste",
   "version": "1.0.0",
-  "description": "",
+  "description": "Teste",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Teste",
   "license": "ISC",
   "dependencies": {
     "cookie": "^0.5.0",
