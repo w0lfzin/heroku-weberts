@@ -165,7 +165,7 @@ function historico() {
   //Info hotel
   var text = ''
   var i = 0
-  var url = "http://127.0.0.1:3031/historicodata";
+  var url = "/historicodata";
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, false);
   xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
