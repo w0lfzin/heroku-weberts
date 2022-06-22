@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/financeiro.css" /> <!--LINK CSS-->
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon"> <!--TAB ICON-->
+    <link rel="stylesheet" href="/css/financeiro.css" /> <!--LINK CSS-->
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"> <!--TAB ICON-->
     <title>Hurb | Financeiro</title> <!--TAB TITLE-->
   </head>
   <body>
     <div id="header">
-      <a href="./dashboard"><img id="logo" src="../assets/logo.png" alt="logo" /></a>
-      <img id="menu" src="../assets/menu.png" alt="menu" /> <!--MENU ICON-->
+      <a href="/dashboard"><img id="logo" src="/assets/logo.png" alt="logo" /></a>
+      <img id="menu" src="/assets/menu.png" alt="menu" /> <!--MENU ICON-->
       <h1 id="title">Financeiro</h1> <!--WHITE TITLE-->
     </div>
     <main id="container"> <!--BLUE BACKGROUND-->
@@ -40,7 +40,7 @@
 
 
             //DADOS VALOR NÃO ANTECIPADO PARA O PIE CHART
-            var url = "http://127.0.0.1:3031/valor1";
+            var url = "/valor1";
 
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, false);
@@ -52,7 +52,7 @@
 
 
             //DADOS MONTANTE ANTECIPADO PARA O PIE CHART
-            url = "http://127.0.0.1:3031/valor2";
+            url = "/valor2";
 
             xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, false);
@@ -94,7 +94,7 @@
 
            <script>       
            //Valor mes 1
-                url = "http://127.0.0.1:3031/mes1";
+                url = "/mes1";
                 xhttp = new XMLHttpRequest();
                 xhttp.open("GET", url, false);
                 xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
@@ -105,7 +105,7 @@
                
               //Valor mes 2
               
-              url = "http://127.0.0.1:3031/mes2";
+              url = "/mes2";
                 xhttp = new XMLHttpRequest();
                 xhttp.open("GET", url, false);
                 xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor

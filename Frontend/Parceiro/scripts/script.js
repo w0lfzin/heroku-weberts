@@ -3,7 +3,7 @@ function load(){
    //Info hotel
    var text = ''
    var i = 0
-   var url = "http://127.0.0.1:3031/hotelReserva";
+   var url = "/hotelReserva";
    var xhttp = new XMLHttpRequest();
    xhttp.open("GET", url, false);
    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
@@ -103,7 +103,7 @@ function regra(){
 }
 
   function abrir(){
-    var url = "http://127.0.0.1:3031/mandarAntecipacao";
+    var url = "/mandarAntecipacao";
     var regra = document.getElementById('selectedAntecipationText').innerHTML
     var data_pedido = new Date().toLocaleDateString([], {
       year: 'numeric',

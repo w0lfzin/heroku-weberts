@@ -80,51 +80,51 @@ function quitPopup(){
 
 function attData() {
 
-    $.get("http://localhost:3031/stateFilter", function(resultado){
+    $.get("/stateFilter", function(resultado){
         resultado.forEach(row => {
             $("#state-options")[0].innerHTML += `<div class="state-unselected" onclick="changeStatus(this)">${row.estado}</div>`;
         });
     });
 
-    $.get("http://localhost:3031/cityFilter", function(resultado){
+    $.get("/cityFilter", function(resultado){
         resultado.forEach(row => {
             $("#city-options")[0].innerHTML += `<div class="city-unselected" onclick="changeStatus(this)">${row.cidade}</div>`;
         });
     });
 
-    $.get("http://localhost:3031/partnerFilter", function(resultado){
+    $.get("/partnerFilter", function(resultado){
         resultado.forEach(row => {
             $("#partner-options")[0].innerHTML += `<div class="partner-unselected" onclick="changeStatus(this)">${row.nome}</div>`;
         });
     });
 
-    $.get("http://localhost:3031/periodFilter", function(resultado){
+    $.get("/periodFilter", function(resultado){
         resultado.forEach(row => {
             $("#period-options")[0].innerHTML += `<div class="period-unselected" onclick="changeStatus(this)">${row.data_recebimento}</div>`;
         });
     });
 
-    $.get("http://localhost:3031/typeFilter", function(resultado){
+    $.get("/typeFilter", function(resultado){
         resultado.forEach(row => {
             $("#type-options")[0].innerHTML += `<div class="type-unselected" onclick="changeStatus(this)">${row.regra}</div>`;
         });
     });
 
 
-    $.get("http://localhost:3031/antecipations", function(resultado){
+    $.get("/antecipations", function(resultado){
         
         $("#antecipation-value")[0].innerHTML = resultado[0]["COUNT (*)"];
         
     });
 
-    $.get("http://localhost:3031/montante", function(resultado){
+    $.get("/montante", function(resultado){
         
         $("#montate-value")[0].innerHTML ="R$"+parseFloat(resultado[0]["SUM (montante)"]);
       
         
     });
 
-    $.get("http://localhost:3031/rentabilidade", function(resultado){
+    $.get("/rentabilidade", function(resultado){
         
         $("#rentabilidade-value")[0].innerHTML =(resultado[0]["SUM(montante)/SUM(valor)"]*100).toFixed(0)+"%";
         
@@ -230,7 +230,7 @@ function filter() {
             $.ajax({
                 dataType: "json",
                 contentType: "application/json",
-                url: "http://127.0.0.1:3031/hotel",
+                url: "/hotel",
                 type: "post",
                 cors: true,
                 headers: {
@@ -249,7 +249,7 @@ function filter() {
             $.ajax({
                 dataType: "json",
                 contentType: "application/json",
-                url: "http://127.0.0.1:3031/antecipacao",
+                url: "/antecipacao",
                 type: "post",
                 cors: true,
                 headers: {
@@ -306,7 +306,7 @@ function ranking(){
     var qtd_ant = 0
     var i = 0
     var valor = 0
-    var url = "http://127.0.0.1:3031/ranking";
+    var url = "/ranking";
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", url, false);
     xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
