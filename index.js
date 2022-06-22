@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(express.static("./frontend/Parceiro"));
+app.use(express.static("./Frontend/Parceiro"));
 
 app.listen(port, () => {
   console.log(`Server running at http://${port}/`);
@@ -24,42 +24,42 @@ app.listen(port, () => {
 
 app.get("/antecipacoesInfo", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/pages/antecipacoesInfo.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/pages/antecipacoesInfo.html")
   )});
 
 app.get("/editarDados", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/pages/editarDados.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/pages/editarDados.html")
   )});
 
 app.get("/index", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/index.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/index.html")
   )});
 
 app.get("/editarBanco", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/pages/editarBanco.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/pages/editarBanco.html")
   )});
 
 app.get("/financeiro", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/pages/financeiro.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/pages/financeiro.html")
   )});
 
 app.get("/historico", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/../frontend/Parceiro/pages/historico.html")
+    path.resolve(__dirname + "/../Frontend/Parceiro/pages/historico.html")
   )});
 
   app.get("/antecipacoes", (req,res) =>{
     res.sendFile(
-      path.resolve(__dirname + "/../frontend/Parceiro/pages/antecipacoes.html")
+      path.resolve(__dirname + "/../Frontend/Parceiro/pages/antecipacoes.html")
     )});
 
     app.get("/dashboard", (req,res) =>{
       res.sendFile(
-        path.resolve(__dirname + "/../frontend/Parceiro/pages/dashboard.html")
+        path.resolve(__dirname + "/../Frontend/Parceiro/pages/dashboard.html")
       )});
 
   /*SERVIDOR API - ENDPOINTS (ACESSO AO BANCO DE DADOS) */
@@ -77,14 +77,14 @@ app.post("/login", (req, res) => {
           res.cookie("id", response.id);
           res.sendFile(
             path.resolve(
-              __dirname + "/../frontend/Parceiro/pages/dashboard.html"
+              __dirname + "/../Frontend/Parceiro/pages/dashboard.html"
             )
           );
         }else{
           res.cookie("id", response.id);
           res.sendFile(
             path.resolve(
-              __dirname + "/../frontend/Parceiro/pages/admin.html"
+              __dirname + "/../Frontend/Parceiro/pages/admin.html"
             )
           )
         }
