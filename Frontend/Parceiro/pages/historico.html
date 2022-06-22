@@ -53,14 +53,14 @@
          <script>
             var api = "localhost:3000";
             //Valor mes 1
-                 url = "http://127.0.0.1:3031/mes1";
+                 url = "/mes1";
                  xhttp = new XMLHttpRequest();
                  xhttp.open("GET", url, false);
                  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
                  var retornomes1 = JSON.parse(xhttp.responseText);
                 var mes1 = retornomes1['SUM(montante)']
                //Valor mes 2
-               url = "http://127.0.0.1:3031/mes2";
+               url = "/mes2";
                  xhttp = new XMLHttpRequest();
                  xhttp.open("GET", url, false);
                  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
