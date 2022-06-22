@@ -29,7 +29,7 @@ app.get("/antecipacoesInfo", (req,res) =>{
 
 app.get("/editarDados", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "./Frontend/Parceiro/pages/editarDados.html")
+    path.resolve(__dirname + "/Frontend/Parceiro/pages/editarDados.html")
   )});
 
 app.get("/index", (req,res) =>{
