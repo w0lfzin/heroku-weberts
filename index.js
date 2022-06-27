@@ -24,45 +24,45 @@ app.listen(port, () => {
 
 app.get("/antecipacoesInfo", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/pages/antecipacoesInfo.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/pages/antecipacoesInfo.html")
   )});
 
 app.get("/editarDados", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/pages/editarDados.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/pages/editarDados.html")
   )});
 
 app.get("/index", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/index.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/index.html")
   )});
 
 app.get("/editarBanco", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/pages/editarBanco.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/pages/editarBanco.html")
   )});
 
 app.get("/financeiro", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/pages/financeiro.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/pages/financeiro.html")
   )});
 
 app.get("/historico", (req,res) =>{
   res.sendFile(
-    path.resolve(__dirname + "/Frontend/Parceiro/pages/historico.html")
+    path.resolve(__dirname + "/../frontend/Parceiro/pages/historico.html")
   )});
 
   app.get("/antecipacoes", (req,res) =>{
     res.sendFile(
-      path.resolve(__dirname + "/Frontend/Parceiro/pages/antecipacoes.html")
+      path.resolve(__dirname + "/../frontend/Parceiro/pages/antecipacoes.html")
     )});
 
     app.get("/dashboard", (req,res) =>{
       res.sendFile(
-        path.resolve(__dirname + "/Frontend/Parceiro/pages/dashboard.html")
+        path.resolve(__dirname + "/../frontend/Parceiro/pages/dashboard.html")
       )});
 
-  /*SERVIDOR API - ENDPOINTS (ACESSO AO BANCO DE DADOS) */
+  /*API SERVER - ENDPOINTS (DATABASE ACCESS) */
   
 //LOGIN
 app.post("/login", (req, res) => {
@@ -77,14 +77,14 @@ app.post("/login", (req, res) => {
           res.cookie("id", response.id);
           res.sendFile(
             path.resolve(
-              __dirname + "/Frontend/Parceiro/pages/dashboard.html"
+              __dirname + "/../frontend/Parceiro/pages/dashboard.html"
             )
           );
         }else{
           res.cookie("id", response.id);
           res.sendFile(
             path.resolve(
-              __dirname + "/Frontend/Parceiro/pages/admin.html"
+              __dirname + "/../frontend/Parceiro/pages/admin.html"
             )
           )
         }
@@ -97,8 +97,8 @@ app.post("/login", (req, res) => {
   );
 });
 
-//GET VALOR ANTECIPAVEL
-app.get("/valor1", (req, res) => {
+//GET value that may be anticipated
+app.get("/value1", (req, res) => {
   db.get(
     `SELECT SUM(valor) FROM reserva`,
     (error, data) => {
@@ -107,8 +107,8 @@ app.get("/valor1", (req, res) => {
   );
 });
 
-//GET VALOR ANTECIPADO
-app.get("/valor2", (req, res) => {
+//GET antecipated value
+app.get("/value2", (req, res) => {
   db.get(
     `SELECT SUM(montante) FROM antecipacao`,
     (error, data) => {
@@ -117,8 +117,8 @@ app.get("/valor2", (req, res) => {
   );
 });
 
-//GET MES1
-app.get("/mes1", (req, res) => {
+//GET 1st month
+app.get("/month1", (req, res) => {
   db.get(
     `SELECT SUM(montante) FROM antecipacao WHERE data_recebimento == '01/2022'`,
     (error, data) => {
@@ -127,8 +127,8 @@ app.get("/mes1", (req, res) => {
   );
 });
 
-//GET MES2
-app.get("/mes2", (req, res) => {
+//GET 2nd month
+app.get("/month2", (req, res) => {
   db.get(
     `SELECT SUM(montante) FROM antecipacao WHERE data_recebimento == '02/2022'`,
     (error, data) => {
@@ -137,9 +137,9 @@ app.get("/mes2", (req, res) => {
   );
 });
 
-//Dados para página de solicitação
+// Data for the request page 
 
-app.get("/hotelReserva", (req, res) => {
+app.get("/hotelReservation", (req, res) => {
   db.all(
     'SELECT hotel.nome, reserva.code, reserva.data_checkout, reserva.valor FROM reserva, hotel WHERE reserva.hotel_id = hotel.id ORDER BY hotel.id',
     (error, data) => {
@@ -148,7 +148,8 @@ app.get("/hotelReserva", (req, res) => {
   );
 });
 
-app.post("/mandarAntecipacao", (req, res) => {
+// Places in the database the antecipation request
+app.post("/sendAntecipation", (req, res) => {
   const infos = req.body;
   db.get(
     `INSERT INTO antecipacao (regra, data_pedido, data_recebimento, montante, reserva_code) VALUES ('${infos.regra}', '${infos.data_pedido}', '${infos.data_recebimento}', '${infos.montante}', '${infos.reserva_code}')`,
@@ -162,7 +163,8 @@ app.post("/mandarAntecipacao", (req, res) => {
   );
 });
 
-app.post("/editarDados", (req, res) => {
+// Creates a new user in the database
+app.post("/editData", (req, res) => {
   const infos = req.body;
   db.get(
     `INSERT INTO hoteleiro (nome, cpf) VALUES ('${infos.hoteleiro_nome}', '${infos.cpf}')`,
@@ -182,27 +184,8 @@ app.post("/editarDados", (req, res) => {
   );
 });
 
-//Coisa do luiz
-
-app.get("/hotel", (req, res) => {
-  db.all(
-    `SELECT * FROM hotel WHERE (estado) IN (${JSON.parse(req.body.estado_hotel)}) AND (${JSON.parse(req.body.cidade_hotel)}) AND (${JSON.parse(req.body.nome_hotel)}) `,
-    (error, data) => {
-      res.json(data)
-    }
-  )
-})
-
-app.get("/antecipacao", (req, res) => {
-  db.all(
-    `SELECT * FROM antecipacao WHERE (estado) IN (${JSON.parse(req.body.data_recebimento_antecipacao)}) AND (${JSON.parse(req.body.regra_antecipacao)}) `,
-    (error, data) => {
-      res.json(data)
-    }
-  )
-})
-
-app.get("/stateFilter", (req, res) => {
+// Searches for states that differ from what we possess in the database
+app.get("/openStates", (req, res) => {
   db.all(
     `SELECT DISTINCT (estado) FROM hotel `,
     (error, data) => {
@@ -210,58 +193,58 @@ app.get("/stateFilter", (req, res) => {
     }
   )
 })
-app.get("/cityFilter", (req, res) => {
+
+// Filters the ranking information using selected states
+app.post("/stateFilter", (req, res) => {
   db.all(
-    `SELECT DISTINCT (cidade) FROM hotel `,
+    `SELECT montante,hotel.nome, antecipacao.regra, hotel.estado FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code and hotel.estado = '${req.body.estado}'`,
     (error, data) => {
       res.json(data)
     }
   )
-})
-app.get("/partnerFilter", (req, res) => {
-  db.all(
-    `SELECT DISTINCT (nome) FROM hotel `,
-    (error, data) => {
-      res.json(data)
-    }
-  )
-})
-app.get("/periodFilter", (req, res) => {
-  db.all(
-    `SELECT DISTINCT (data_recebimento) FROM antecipacao `,
-    (error, data) => {
-      res.json(data)
-    }
-  )
-})
-app.get("/typeFilter", (req, res) => {
-  db.all(
-    `SELECT DISTINCT (regra) FROM antecipacao `,
-    (error, data) => {
-      res.json(data)
-    }
-  )
-})
-app.get("/antecipations?states=[]", (req, res) => {
-  var stateFiltered = JSON.parse(req.query.state);
-  console.log(stateFiltered)
-  if (!stateFiltered) { 
-    db.get( 
-      `SELECT SUM(estado) FROM hotel`,
-      (error, data) => {
-        res.json(data)
-      }
-    )
-  } else {
-    db.get(
-      `SELECT SUM(estado) FROM hotel WHERE estado in ${stateFiltered}`,
-      (error, data) => {
-        res.json(data)
-      }
-    )
-  }
 })
 
+// Searches for partners that differ from what we possess in the databse
+app.get("/openPartner", (req, res) => {
+  db.all(
+    `SELECT nome, hotel.id, code, reserva_code, hotel_id FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code `,
+    (error, data) => {
+      res.json(data)
+    }
+  )
+})
+
+// Filters the ranking informations according to the selected partner
+app.post("/partnerFilter", (req, res) => {
+  db.all(
+    `SELECT montante,hotel.nome, antecipacao.regra, hotel.estado FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code and hotel.nome = '${req.body.partner}'`,
+    (error, data) => {
+      res.json(data)
+    }
+  )
+})
+
+// Searches the database for requests we don't possess
+app.get("/openType", (req, res) => {
+  db.all(
+    `SELECT DISTINCT (regra) FROM antecipacao`,
+    (error, data) => {
+      res.json(data)
+    }
+  )
+})
+
+// Searches the ranking information according to the type of selected requests
+app.post("/typeFilter", (req, res) => {
+  db.all(
+    `SELECT montante,hotel.nome, antecipacao.regra, hotel.estado FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code and antecipacao.regra = '${req.body.regra}'`,
+    (error, data) => {
+      res.json(data)
+    }
+  )
+})
+
+// Searches the database for the antecipationxdeadline value division
 app.get("/antecipations", (req, res) => {
   db.all(
     `SELECT COUNT (*) FROM antecipacao `,
@@ -271,7 +254,8 @@ app.get("/antecipations", (req, res) => {
   )
 })
 
-app.get("/montante", (req, res) => {
+// Searches the database for the paymentsxdeadline value division
+app.get("/fullValue", (req, res) => {
   db.all(
     `SELECT SUM (montante) FROM antecipacao`,
     (error, data) => {
@@ -281,7 +265,8 @@ app.get("/montante", (req, res) => {
   
 })
 
-app.get("/rentabilidade", (req, res) => {
+// Searches the database for the avarage rentability division
+app.get("/profitability", (req, res) => {
   db.all(
     `SELECT SUM(montante)/SUM(valor) FROM antecipacao INNER JOIN reserva on reserva.code = antecipacao.reserva_code`,
     (error, data) => {
@@ -291,38 +276,19 @@ app.get("/rentabilidade", (req, res) => {
 
 })
 
-app.get("/antecipations?states=[]", (req, res) => {
-  var stateFiltered = JSON.parse(req.query.state);
-  console.log(stateFiltered)
-  if (!stateFiltered) { 
-    db.get( 
-      `SELECT SUM(estado) FROM hotel`,
-      (error, data) => {
-        res.json(data)
-      }
-    )
-  } else {
-    db.get(
-      `SELECT SUM(estado) FROM hotel WHERE estado in ${stateFiltered}`,
-      (error, data) => {
-        res.json(data)
-      }
-    )
-  }
-})
-
-//Ranking
+// Hotel's ranking data
 
 app.get("/ranking", (req, res) => {
   db.all(
-    `SELECT montante,hotel.nome, antecipacao.regra, hotel.estado FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code`,
+    `SELECT montante,hotel.nome, antecipacao.regra, hotel.estado FROM hotel, antecipacao, reserva where hotel.id = reserva.hotel_id and reserva.code = antecipacao.reserva_code ORDER BY antecipacao.montante ASC`,
     (error, data) => {
       res.json(data)
     }
   )
 })
 
-app.get("/historicodata", (req, res) => {
+//Hotel history data
+app.get("/historyData", (req, res) => {
   db.all(
     'SELECT regra, data_recebimento, montante FROM antecipacao',
     (error, data) => {

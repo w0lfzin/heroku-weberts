@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="/scripts/script.js"></script>
+    <!-- Inicial configuration information -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Website style-->
     <link rel="stylesheet" href="/css/editarDados.css" />
     <link
       rel="shortcut icon"
       href="/assets/favicon.png"
       type="image/x-icon"
     />
-    <script src="/scripts/script.js"></script>
-    <title>Editar Dados</title>
+
+    <title>Editar Dados</title> <!--Page's Title-->
   </head>
   <body>
+    <!-- Menu and logo header -->    
     <div id="header">
-     <a href="/dashboard"> <img id="logo" src="/assets/logo.png" alt="logo" /></a>
+     <a href="\dashboard"> <img id="logo" src="/assets/logo.png" alt="logo" /></a>
      
       <img id="menu" src="/assets/menu.png" alt="menu" />
     </div>
-    <main id="main-body">
+    <main id="main-body"> 
+      <!-- Text elements -->
       <div id="child-body">
         <div class="containerinfo">
           <div class="title">
@@ -27,7 +32,8 @@
             <img src="/assets/Rectangle 241.svg" alt="retangulo" id="ret" />
           </div>
 
-          <div class="smallcontainer">
+          <div class="smallcontainer"> 
+            <!-- Text elements containing placeholders -->
             <div class="coluninfo">
               <p>Nome</p>
               <input type="text" placeholder="Fernando Souza" id="nome" />
@@ -51,7 +57,8 @@
             </div>
           </div>
         </div>
-        <div class="containerinfo">
+        <div class="containerinfo">               
+          <!-- Text elements containing placeholders -->
           <div class="title">
             <h1 class="title">Dados do hotel</h1>
             <img src="/assets/Rectangle 241.svg" alt="retangulo" id="ret" />
@@ -79,14 +86,15 @@
             </div>
             <div class="coluninfostate">
               <p>Estado</p>
-
-              <select
+              <!-- State selection -->
+              <select 
                 class="form-select selectStyle"
                 id="estado1"
                 value="Estado"
                 aria-label="Default select example"
               ></select>
             </div>
+            <!-- City selection -->
             <div class="coluninfo">
               <p>Cidade</p>
               <select
@@ -95,6 +103,7 @@
                 value="Cidade"
                 aria-label="Default select example"
               ></select>
+              <!-- Configuration information -->
               <script
                 language="JavaScript"
                 type="text/javascript"
@@ -107,16 +116,18 @@
               </script>
             </div>
           </div>
+          <!-- Saving data into the database -->
           <div class="buttondiv">
             <button onclick="editData()">Salvar</button>
           </div>
         </div>
       </div>
     </main>
+    <!-- Popup to ensure data was sucessfuly saved -->
     <div id="popUpDados" class="popUp">
       <div class="imgbx" >
         <img id="gif" src="/assets/76649-checked.gif" alt="">
-        <a href="/dashboard"> <img  id="closeIcon" src="/assets/x.svg" alt="" ></a>
+        <a href="\dashboard"> <img  id="closeIcon" src="/assets/x.svg" alt="" ></a>
      
       </div>
       <p id="dadosSalvos">Seus dados foram salvos com sucesso!</p> 

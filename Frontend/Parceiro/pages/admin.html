@@ -16,55 +16,51 @@
 </head>
 
 <body onload="ranking()">
-    <div id="menu">
+    <div id="menu">  <!-- WHITE HEADER -->   
         <div class="row header">
             <div class="col-2 menu-icons">
-                <button onclick="quitPopup()" id="logout">
+                <button onclick="quitPopup()" id="logout">  <!-- LOGOUT POPUP -->
                     <i class="bi bi-box-arrow-right"></i>
                     <span">Logout</span>
                 </button>
             </div>
             <div class="col-7 menu-icons" id="logo">
-                <img src="/assets/hurb-logo.svg" alt="">
+                <img src="/assets/hurb-logo.svg" alt=""> <!-- HURB LOGO -->
             </div>
             <div class="col-2 menu-icons">
                 <button id="filter">
-                    <i onclick="openFilter()" class="bi bi-sort-down"></i>
+                    <i onclick="openFilter()" class="bi bi-sort-down"></i>  <!-- FILTER POPUP -->
                 </button>
             </div>
         </div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid">  <!-- BODY -->
         <div id="shadow"></div>
-        <div id="filterPopup">
+        <div id="filterPopup">  <!-- FILTER POPUP BODY -->
             <div value="teste">
-                <div onclick="openStates()" class="filter" id="estados-filter">Estados</div>
+                <div onclick="openStates()" class="filter" id="estados-filter">Estados</div>    <!-- STATES BUTTON -->
                 <div id="state-options"></div>
-                <div onclick="openCities()" class="filter" id="cidades-filter">Cidades</div>
-                <div id="city-options"></div>
-                <div onclick="openPartner()" class="filter" id="parceiros-filter">Parceiros</div>
+                <div onclick="openPartner()" class="filter" id="parceiros-filter">Parceiros</div>   <!-- PARTNER BUTTON -->
                 <div id="partner-options"></div>
-                <div onclick="openPeriod()" class="filter" id="periodos-filter">Períodos</div>
-                <div id="period-options"></div>
-                <div onclick="openType()" class="filter" id="tipos-filter">Tipos de Atecipações</div>
+                <div onclick="openType()" class="filter" id="tipos-filter">Tipos de Atecipações</div>   <!-- TYPE BUTTON -->
                 <div id="type-options"></div>
             </div>
         </div>
-        <div id="quitPopup">
+        <div id="quitPopup"> <!-- LOGOUT POPUP BODY -->
             <div>
                 <h3>Você deseja relamente deslogar da sua conta?</h3>
             </div>
-            <div id="quitoptions">
+            <div id="quitoptions">  
                 <div onclick="location.href='./index.html'" class="quitoptions">Sim</div>
                 <div onclick="quitPopup()" class="quitoptions">Não</div>
             </div>
         </div>
         <div id="row-content" class="row content">
             <div class="col">
-                <div class="row">
-                    <div class="col-7">
-                        <div class="row">
-                            <div class="col solid-card">
+                <div >
+                    <div>     <!-- LEFT PART OF BODY -->
+                        <div class="row">   <!-- HEADER OF LEFT BODY -->
+                            <div class="col solid-card">    <!-- LEFT HEADER -->
                                 <div class="row">
                                     <div class="col-1 small-line"></div>
                                     <div class="col">
@@ -77,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col solid-card">
+                            <div class="col solid-card">    <!-- MIDDLE HEADER -->
                                 <div class="row">
                                     <div class="col-1 small-line"></div>
                                     <div class="col kpi-col">
@@ -90,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col solid-card">
+                            <div class="col solid-card">    <!-- RIGHT HEADER -->
                                 <div class="row">
                                     <div class="col-1 small-line"></div>
                                     <div class="col">
@@ -104,104 +100,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row">   <!-- RANKING -->
                             <div id="empty-card-1" class="col">
                                 <div id="empty-title" class="row">
-                                    <h3>Ranking</h3>
+                                    <h3>Ranking</h3>    <!-- TITLE -->
                                 </div>
                                 <div class="row label-roll-1">
-                                    <div class="col row" id="col_number">
+                                    <div class="col row" id="col_number">   <!-- NUMBER COLUMN -->
                                     </div>
-                                    <div class="col row" id="partner_col">
+                                    <div class="col row" id="partner_col">  <!-- PARTNER COLUMN -->
                                     </div>
-                                    <div class="col row" id="rule_col">
+                                    <div class="col row" id="rule_col">     <!-- TYPE OF ANTECIPATION COLUMN -->
                                     </div>
-                                    <div class="col row" id="state_col">
+                                    <div class="col row" id="state_col">    <!-- STATE COLUMN -->
                                     </div>
-                                    <div class="col row" id="qtd">
+                                    <div class="col row" id="qtd">  <!-- QUANTITY OF ANTECIPATIONS COLUMN -->
                                     </div>
-                                    <div class="col row" id="antecipatedValue">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <div class="row">
-                            <div class="col solid-card">
-                                <div class="col-1 small-line"></div>
-                                <div class="col">
-                                    <div class="row">
-                                        <h3>Total Pago Período x Total Antecipado + % Representativadade</h3>
-                                    </div>
-                                    <div class="row">
-                                        <div id="line-1" class="col">
-                                            <div class="row">
-                                                <h5>Total pago no período</h5>
-                                            </div>
-                                            <div id="line-2" class="row">
-                                                <div class="col" id="bar-1">
-                                                    <span>
-                                                        <h2 id="montate-value" class="blue">R$ 1.299.000,29</h2>
-                                                    </span>
-                                                </div>
-                                                <div id="timeline-circle-1" class="col">
-                                                    <span>
-                                                        <h3>50%</h3>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="footer" class="row">
-                                        <div id="line-1" class="col">
-                                            <div class="row">
-                                                <h5>Total antecipado no período</h5>
-                                            </div>
-                                            <div id="line-2" class="row">
-                                                <div class="col" id="bar-2">
-                                                    <span>
-                                                        <h2>R$ 720.030,03</h2>
-                                                    </span>
-                                                </div>
-                                                <div class="col" id="timeline-circle-2">
-                                                    <span>
-                                                        <h3>20%</h3>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col solid-card">
-                                <div class="col">
-                                    <div class="row">
-                                        <h3>Comparativo Rentabilidades</h3>
-                                    </div>
-                                    <div class="comparativoRentabilidade">
-                                        <div id="graph" class="col-6 graph">
-                                            <img src="/assets/Gráfico.svg" alt="">
-                                        </div>
-                                        <div id="graph-delta" class="col-6 deltaContainer">
-                                            <div id="solid-btn" class="row">
-                                                <button>Selecione o Ano de Comparação</button>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <h3>Delta</h3>
-                                                    </div>
-                                                    <div class="row" id="timeline-circle-3">
-                                                        <span>
-                                                            <h1>-213%</h1>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col row" id="antecipatedValue">     <!-- ANTECIPATED VALUE -->
                                     </div>
                                 </div>
                             </div>

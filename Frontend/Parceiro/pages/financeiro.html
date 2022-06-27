@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt">
   <head>
+    <!-- Inicial configuration information -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/financeiro.css" /> <!--LINK CSS-->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"> <!--TAB ICON-->
-    <title>Hurb | Financeiro</title> <!--TAB TITLE-->
+    <!-- Website style-->
+    <link rel="stylesheet" href="/css/financeiro.css" /> 
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"> 
+    <title>Hurb | Financeiro</title> <!--Page's Title-->
   </head>
   <body>
+    <!-- Menu and logo header -->    
     <div id="header">
-      <a href="/dashboard"><img id="logo" src="/assets/logo.png" alt="logo" /></a>
-      <img id="menu" src="/assets/menu.png" alt="menu" /> <!--MENU ICON-->
-      <h1 id="title">Financeiro</h1> <!--WHITE TITLE-->
+      <a href="./dashboard"><img id="logo" src="/assets/logo.png" alt="logo" /></a>
+      <img id="menu" src="/assets/menu.png" alt="menu" /> 
+      <h1 id="title">Financeiro</h1> 
     </div>
-    <main id="container"> <!--BLUE BACKGROUND-->
-      <div id="wtContainer"> <!--WHITE BACKGROUND-->
-        <div id="revenueDetails"> <!--LEFT PART-->
-          <p class="subtitle">Detalhamento da receita</p> <!--LEFT TITLE-->
-          <div id="pieChartContainer"> <!--PIE CHART SECTION-->
+    <!--Blue background-->
+    <main id="container"> 
+      <!--White background-->
+      <div id="wtContainer"> 
+        <div id="revenueDetails"> 
+          <!--Pie chart with revenue details-->
+          <p class="subtitle">Detalhamento da receita</p> 
+          <div id="pieChartContainer"> 
               <canvas class="pie-chart"></canvas> 
           </div>
         </div>
-        <div id="antecipationGraph"> <!--LEFT PART-->
-          <p class="subtitle">Gráfico de Antecipações</p> <!--LEFT TITLE-->
+        <div id="antecipationGraph"> 
+          <!--Pie chart with antecipation graphic-->
+          <p class="subtitle">Gráfico de Antecipações</p> 
           <div class="graphContainer">  
-            <div class="grafico">    <!--PIE CHART SECTION-->
+            <div class="grafico">   
               <section class="bar">
                    <canvas style="height: 350px; width: 450px;" class="bar-chart"></canvas> 
               </section>
@@ -39,24 +46,24 @@
             var api ="localhost:3000";
 
 
-            //DADOS VALOR NÃO ANTECIPADO PARA O PIE CHART
-            var url = "/valor1";
+            //DATA OF THE VALUE THAT HASNT BEEN ANTECIPATED TO THE PIE CHART
+            var url = "/value1";
 
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, false);
-            xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+            xhttp.send();//The script's execution stops here until the server returns the requirements 
 
             var retorno1 = JSON.parse(xhttp.responseText);
 
             var valor1 = retorno1['SUM(valor)']
 
 
-            //DADOS MONTANTE ANTECIPADO PARA O PIE CHART
-            url = "/valor2";
+            //DATA OF THE VALUE THAT HAS BEEN ANTICIPATED TO THE FLOWCHART
+            url = "/value2";
 
             xhttp = new XMLHttpRequest();
             xhttp.open("GET", url, false);
-            xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+            xhttp.send();//The script's execution stops here until the server returns the requirements 
 
             var retorno2 = JSON.parse(xhttp.responseText);
 
@@ -93,22 +100,22 @@
            <!--BAR CHART-->  
 
            <script>       
-           //Valor mes 1
-                url = "/mes1";
+           //1st month value
+                url = "/month1";
                 xhttp = new XMLHttpRequest();
                 xhttp.open("GET", url, false);
-                xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+                xhttp.send();//The script's execution stops here until the server returns the requirements 
 
                 var retornomes1 = JSON.parse(xhttp.responseText);
 
                var mes1 = retornomes1['SUM(montante)']   
                
-              //Valor mes 2
+              //2nd month value
               
-              url = "/mes2";
+              url = "/month2";
                 xhttp = new XMLHttpRequest();
                 xhttp.open("GET", url, false);
-                xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+                xhttp.send();//The script's execution stops here until the server returns the requirements 
 
                 var retornomes2 = JSON.parse(xhttp.responseText);
 
@@ -152,8 +159,6 @@
 </div>
 </div>
 </div>
-
-
           </div>
         </div>
       </div>

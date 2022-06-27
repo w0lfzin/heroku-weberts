@@ -32,20 +32,20 @@
       <div id="wtContainer">
         <!--WHITE BACKGROUND-->
         <div class="subtileCointainer">
-          <h1 class="subtitle">Reservas Selecionadas</h1>
+          <h1 class="subtitle">Reservas Selecionadas</h1> <!-- TITLE -->
         </div>
-        <div class="scrollContainer" id="scrollContainer"></div>
-        <div class="geralContainer">
+        <div class="scrollContainer" id="scrollContainer"></div>  <!-- CONTAINER FOR ALL ANTECIPATIONS AVAILABLE -->
+        <div class="geralContainer">  <!-- BOTTOM CONTAINER -->
           <div class="geralTitle">
-            <h1>Geral</h1>
+            <h1>Geral</h1>  <!-- BOTTOM CONTAINER TITLE -->
           </div>
           <div class="geralInfos">
-            <div class="valueInfos">
+            <div class="valueInfos">    <!-- SELECTED VALUE -->
               <p class="valueText">Valor</p>
               <p class="valueNumber" id="fullValue">R$ 0</p>
             </div>
-            <div class="antecipationType">
-              <div class="selectedAntecipationContainer">
+            <div class="antecipationType">  <!-- TYPE OF ANTECIPATION SELECTED -->
+              <div class="selectedAntecipationContainer"> 
                 <h1>Tipo de antecipação</h1>
                 <p id="selectedAntecipationText">D+30</p>
               </div>
@@ -96,12 +96,12 @@
                 </div>
               </form>
             </div>
-            <div class="receiptDateContainer">
+            <div class="receiptDateContainer">  <!-- PROCEEDS DATE -->
               <h1>Data de Recebimento</h1>
               <p id="Data">XX/XX/XXXX</p>
             </div>
             <div class="buttonAntecipar">
-              <button onclick="abrir()">Antecipar</button>
+              <button onclick="abrirAntecipacoes()">Antecipar</button> <!-- BUTTON TO ANTECIPATE -->
             </div>
           </div>
         </div>
@@ -109,18 +109,46 @@
     </main>
     <div id="bodyBlur">   
   </div>
-  <div id="popUp" class="popUp">
-    <div class="imgbx" >
-      <img id="gif" src="/assets/76649-checked.gif" alt="">
-    <a href="\dashboard">
-      <img id="closeIcon" src="/assets/x.svg" alt="" >
-    </a>
+
+  <div id="popUp" class="popUp">  <!-- ANTECIPATE POPUPS -->
+    
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="confirmPop">  <!-- CONFIRM ANTECIPATION POPUP -->
+          <div style="display:flex; flex-direction: column; margin-top: 50px;">
+          <p id="soma" style="font-size: 16px; align-self: flex-start;">
+            Você está antecipando: R$
+            </p>
+          <p id="taxa" style="font-size: 16px; align-self: flex-start;">
+            Taxa:
+            </p>
+          <p id="regra" style="font-size: 16px; align-self: flex-start;">
+            Regra de negócio:
+            </p>
+          <p id="montante" style="font-size: 16px; align-self: flex-start;">
+            Total:
+            </p>
+            <button id="confirm" onclick="confirmar()">Confirmar</button> <!-- CONFIRM ANTECIPATION POPUP -->
+        </div>
+      </div>
+        <div class="carousel-item" id="confirmGif"> <!-- ANTECIPATION COMPLETE POPUP -->
+          <div class="imgbx" >
+            <img id="gif" src="/assets/76649-checked.gif" alt="">
+          <a href="\dashboard">
+            <img id="closeIcon" src="/assets/x.svg" alt="" >
+          </a>
+          </div>
+          <p id="antecipation"> Sua antecipação foi confirmada!</p> 
+          <p style="font-size: 16px;">
+          Você receberá um email com as principais informações da
+            antecipação!
+          </p>
+        </div>
+      </div>
+      </a>
     </div>
-    <p id="antecipation"> Sua antecipação foi confirmada!</p> 
-    <p style="font-size: 16px;">
-    Você receberá um email com as principais informações da
-      antecipação!
-    </p>
   </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </body>
 </html>
