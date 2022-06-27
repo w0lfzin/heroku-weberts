@@ -2,27 +2,27 @@
 <html lang="pt">
   <head>
     <script src="/scripts/script.js"></script>
-    <!-- Inicial configuration information -->
+    <!-- Detalhes de configuração inicial -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Website style-->
+    <!-- Estilo do site-->
     <link rel="stylesheet" href="/css/historico.css" />
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-    <title>Hurb | Histórico</title>  <!--Page's title -->
+    <title>Hurb | Histórico</title>  <!-- Título da página -->
   </head>
   <body onload="historico()">
-    <!-- Menu and logo header -->
+    <!-- Cabeçalho com logo e menu -->
     <div id="header">
       <a href="/dashboard"><img id="logo" src="/assets/logo.png" alt="logo" /></a>
-      <img id="menu" src="/assets/menu.png" alt="menu" />
+      <img id="menu" src="/assets/menu.png" alt="menu" /><!-- imagem do menu -->
       <h1 id="title">Histórico</h1>
     </div>
-    <!-- Blue background -->
+    <!-- Background azul -->
     <main id="container">
-      <!-- White background -->
+      <!-- Background branco -->
       <div id="wtContainer">
-        <!--Previous anticipations column -->
+        <!-- Coluna de Antecipações passadas -->
         <div id="previousAnticipatios">
           <p class="subtitle">Antecipações Anteriores</p>
           <div id="anticipatiosColumns">
@@ -32,7 +32,7 @@
               <a href="/pages/financeiro.html" 200ms class="columTitle">Valor</a>
             </div>
             <div class="scrollContainer" id="scrollContainer">
-              <!-- Text elements -->
+              <!-- Elementos de texto -->
               <div class="anticipationsColumn" id="colunaData">
               </div>
               <div class="anticipatiosColumn" id="colunaRegra">
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div id="pastProjectionGraph">
-          <!-- Past projections column/graph -->
+          <!-- Coluna de projeções passadas -->
           <p class="subtitle">Projeções Passadas</p>
             <div class="graphContainer">
             <div class="grafico">
@@ -52,18 +52,18 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
          <script>
             var api = "localhost:3000";
-            //1st month value
-                 url = "/month1";
+            //Valor mes 1
+                 url = "/mes1";
                  xhttp = new XMLHttpRequest();
                  xhttp.open("GET", url, false);
-                 xhttp.send();//The script's execution stops here until the server returns the requirements 
+                 xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
                  var retornomes1 = JSON.parse(xhttp.responseText);
                 var mes1 = retornomes1['SUM(montante)']
-               //2nd month value
-               url = "/month2";
+               //Valor mes 2
+               url = "/mes2";
                  xhttp = new XMLHttpRequest();
                  xhttp.open("GET", url, false);
-                 xhttp.send();//The script's execution stops here until the server returns the requirements 
+                 xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
                  var retornomes2 = JSON.parse(xhttp.responseText);
                 var mes2 = retornomes2['SUM(montante)']
                 var boy = document.getElementsByClassName('bar-chart');

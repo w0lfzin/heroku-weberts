@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/nav.css" rel="stylesheet" />
+    <meta charset="utf-8" />
     <link href="/css/dashboard.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,107 +11,50 @@
     />
     <link
       rel="shortcut icon"
-      href="../assets/favicon.png"
+      href="/assets/favicon.png"
       type="image/x-icon"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/scripts/script.js"></script>
+
     <title>Hurb | Dashboard</title>
   </head>
   <body>
-    <nav
-      id="navStyle"
-      class="navbar navbar-light fixed-tnavbar navbar-expand-lg bg-light fixed-topop"
-    >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasResponsive"
-        aria-controls="offcanvasResponsive"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="offcanvas-lg offcanvas-end"
-        tabindex="-1"
-        id="offcanvasResponsive"
-        aria-labelledby="offcanvasResponsiveLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Menu</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            data-bs-target="#offcanvasResponsive"
-            aria-label="Close"
-          ></button>
-        </div>
-        <!-- MY ACCOUNT BUTTONS -->
-        <div class="offcanvas-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <a class="nav-link active menu" href="/editarDados"
-                >Dados Pessoais</a
-              >
-            </li>
-            <li class="list-group-item">
-              <a class="nav-link active menu" href="/editarBanco"
-                >Dados Bancários</a
-              >
-            </li>
-            <li class="list-group-item">
-              <a class="nav-link active menu" href="/index">Sair </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-        <!-- HEADER -->
-    <ul class="menu">
-      <!-- ICON -->
+    <!--Cabeçalho do site-->
+    <header class="header">
       <a href="/dashboard"
         ><img id="logo" src="/assets/logo.png" alt="logo"
       /></a>
-      <div id="options" onmouseenter="mouseIn()" onmouseleave="mouseOut()">
-        <a style="cursor: pointer;" id="myAccount"><li>Minha Conta</li></a>
-        <div class="list">
-          <a
-            id="option0"
-            class="none"
-            style="cursor: pointer"
-            href="/editarDados"
-            ><li class="list">Dados Pessoais</li></a
+      <div class="toggle"></div>
+      <ul class="menu">
+        <li>
+          <select
+            name="myAccount"
+            id="myAccount"
+            onchange="location.href=this.value"
           >
-          <a
-            id="option1"
-            class="none"
-            style="cursor: pointer"
-            href="/editarBanco"
-            ><li class="list">Dados Bancários</li></a
-          >
-          <a id="option2" class="none" style="cursor: pointer" href="/index"
-            ><li class="list">Sair</li></a
-          >
-        </div>
-      </div>
-    </ul>
-    <!-- BODY -->
-    <main class="blueLightContainer">
-      <div class="whiteContainer">
-        <div class="firstRow">
-          <!-- ANTECIPATIONS -->
+            <option style="display: none">Minha Conta</option>
+            <option value="/editarDados">Dados Pessoais</option>
+            <option value="/editarBanco">Dados Bancários</option>
+            <option value="/index">Sair</option>
+          </select>
+        </li>
+        <li>
+          <select name="myHotels" id="myHotels">
+            <option value="1">Meus Hotéis</option>
+            <option value="2">Hotel Por do Sol</option>
+            <option value="3">Hotel Itatiaia</option>
+            <option value="4">Pousada Tradição</option>
+          </select>
+        </li>
+      </ul>
+      <!-- <img id="menu" src="../assets/menu.png" alt="menu" /> -->
+    </header>
+    <!--Corpo principal da página dashboard-->
+    <div class="body-dashboard">
+      <!--Centro do dashboard que está dentro do corpo principal-->
+      <div class="dashboard-center">
+        <!--Metade do centro do dashboard-->
+        <div class="dashboard-row">
+          <!--Botão de solicitação de antecipação-->
           <a href="/antecipacoes" class="select-button">
             <img
               id="solicitar-antecipação"
@@ -125,17 +65,7 @@
               <span>Solicitar<br />antecipação</span>
             </div>
           </a>
-          <!-- PAST TRANSACTIONS -->
-          <a href="/historico" class="select-button">
-            <img id="historico" src="/assets/time.svg" />
-            <br />
-            <div style="height: 10%; width: 100%">
-              <span>Histórico</span>
-            </div>
-          </a>
-        </div>
-        <div class="secondRow">
-          <!-- FINANCES -->
+          <!--Botão de acompanhamento das finanças do hotel-->
           <a href="/financeiro" class="select-button">
             <img id="finanças" src="/assets/dinheiro.png" />
             <br />
@@ -143,21 +73,45 @@
               <span>Finanças</span>
             </div>
           </a>
-          <!-- INFORMATIONS -->
-          <a href="/antecipacoesInfo" class="select-button">
-            <img
-              id="info-ant"
-              src="/assets/info.svg"
-            />
+        </div>
+        <!--Outra metade do centro do dashboard-->
+        <div class="dashboard-row">
+          <!--Botão de ver o histórico de antecipações do hotel-->
+          <a href="/historico" class="select-button">
+            <img id="histórico" src="/assets/time.svg" />
             <br />
-            <div style="height: 10%; width: 100%">
+            <div style="height: 10%; width: 100%; margin-top: 15px">
+              <span>Histórico</span>
+            </div>
+          </a>
+          <!--Botão de acompanhar as solicitações de antecipação-->
+          <a href="/antecipacoesInfo" class="select-button">
+            <img id="info-ant" src="/assets/info.svg" />
+            <br />
+            <div
+              style="
+                height: 10%;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+              "
+            >
               <span>Saiba mais<br />sobre antecipações</span>
             </div>
           </a>
         </div>
       </div>
-    </main>
-    <!-- SIGN LANGUAGE TRANSLATOR -->
+    </div>
+    <!-- Código do menu lateral  -->
+    <script type="text/javascript">
+      function toggleMenu() {
+        var menuToggle = document.querySelector(".toggle");
+        var menu = document.querySelector(".menu");
+        menuToggle.classList.toggle("active");
+        menu.classList.toggle("active");
+      }
+    </script>
+<!-- Widget para libras -->
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
